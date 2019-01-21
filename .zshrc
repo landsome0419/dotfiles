@@ -121,6 +121,9 @@ alias cpicker="gcolor2"
 
 export PATH=/home/axel/.gem/ruby/2.6.0/bin:$PATH
 export PATH="$PATH:/usr/sbin"
+export SVGA_VGPU10=0
+
+xinput set-prop 7 131 2.400000, 0.000000, 0.000000, 0.000000, 2.400000, 0.000000, 0.000000, 0.000000, 1.000000  
 
 ./neofetch/neofetch | lolcat
 
