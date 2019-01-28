@@ -125,5 +125,8 @@ export SVGA_VGPU10=0
 
 xinput set-prop 7 131 2.400000, 0.000000, 0.000000, 0.000000, 2.400000, 0.000000, 0.000000, 0.000000, 1.000000  
 
+alias vim="vim -S ~/.vimrc"
+alias vi="vim -S ~/.vimrc"
+
 ./neofetch/neofetch | lolcat
 

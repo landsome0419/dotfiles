@@ -1,6 +1,5 @@
-spotify
 i3-msg 'workspace '3: '' 
-i3-msg 'exec urxvt -e mpsyt'
+i3-msg 'exec urxvt -e spotify'
 sleep .1
 i3-msg 'split v' 
 i3-msg 'exec urxvt -e cava'
