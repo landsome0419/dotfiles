@@ -87,10 +87,25 @@ echo "dotfiles.....Done."
 echo "zsh..........Done."
 echo "Done"
 
-read -p "Would you like to reboot to take effect (y/n) " -n 1 -r
+read -p "Would you like to reboot to take effect? (Y/n) " -n 1 -r
 echo 
-if [[  $REPLY =~ ^[Yy]$ ]]
+if [[  $REPLY =~ ^[nN]$ ]]
 then 
-	reboot
+	echo "you answered no"
+	sleep 2
+	echo "Clearing screen"
+	sleep 1
+	clear
+	source ~/.zshrc
+else
+	for i in . .. ... ....
+do
+	clear
+	echo "Rebooting $i"
+	sleep 1
+done
+
+reboot
+
 fi
 
