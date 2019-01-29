@@ -1,4 +1,6 @@
-## git config
+## script made my landsome0419 ##
+
+## git config ##
 echo "Starting Manjaro I3 installation process"
 echo "
 
@@ -8,40 +10,74 @@ echo "configuring git"
 git config --global user.email "landsome@protonmail.com"
 git config --global user.name "landsome0419"
 
-## install firefox
+## install Firefox ##
 clear
-echo " Installing Firefox"
-sleep 2
-sudo pacman -S firefox
 
-## install neofetch
+if [ -a /usr/bin/firefox ]
+then 
+	echo "The application Firefox exists."; echo "Skipping."
+	sleep 2 
+else
+	echo "The application Firefox does not exist."; echo "installing."
+	sleep 2
+	sudo pacman -S firefox
+fi
+
 clear
-echo "Installing Neofetch"
-cd
-git clone https://github.com/dylanaraps/neofetch.git
 
-## install ruby
+## install Neofetch ##
+if [ -d ~/neofetch/ ]
+then
+	echo "Neofetch already exists."; echo "Skipping."
+	sleep 2
+else
+	echo "Neofetch does not exists."; echo "installing."
+	sleep 2
+	cd
+	git clone https://github.com/dylanaraps/neofetch.git
+
+fi
+
 clear
-echo "installing ruby"
-cd
-sudo pacman -S ruby
 
-## install lolcat
+## install ruby ##
+if [ -f /usr/bin/ruby ] 
+then 
+	echo "Ruby already exists."; echo "Skipping."
+	sleep 2
+else
+	echo "Ruby does not exists."; echo "installing."
+	sleep 2
+	cd
+	sudo pacman -S ruby
+fi
+
 clear
-echo "installing lolcat"
-echo "
 
-"
-sleep 2
-gem install lolcat
+## install lolcat ##
+if [ -f /home/axel/.gem/ruby/2.6.0/bin/lolcat ]
+then
+	echo "lolcat already exists."; echo "Skipping."
+	sleep 2
+else
+	echo "lolcat does not exists."; echo "installing."
+	sleep 2
+	gem install lolcat
+fi
 
-## install zsh fonts
 clear
-echo "installing zsh fonts"
-echo "
 
-"
-sleep 2
+## install fonts ##
+read -p "Would you like to install terminal fonts? (Y/n) " -n 1 -r
+echo 
+if [[ $REPLY =~ ^[nN]$ ]] 
+then
+	echo "You answerd no"
+	sleep 2
+	echo "Proceeding with installation."
+	sleep 2
+else
+	sleep 2
 cd
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
@@ -49,48 +85,41 @@ cd fonts
 cd ..
 rm -rf fonts
 
-## copying dotfiles to computer
-clear
-echo "copying dotfiles to computer"
-echo "
+fi
 
-"
+clear
+
+## copying dotfiles to computer ##
+echo "copying dotfiles to computer"
 sleep 2
 cd manjaro
-cp config ~/.i3/config 
+cp config ~/.i3/config
 cp .Xresources ~/.Xresources
 cp .zshrc ~/.zshrc
 
 
-## install zsh
-echo "installing ZSH"
-sleep 1
-sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+## install zsh ##
+if [ -f /usr/bin/zsh ]
+then
+	echo "Zsh already exists."; echo "Skipping."
+	sleep 2
+else
+	echo "Zsh does not exists."; echo "installing."
+	sleep 2
+	sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-## update libraries
+fi
+
+## update system ##
 echo "Updating System"
-sleep 1
+sleep 2
 sudo pacman -Syu
 
-## status
-echo "Firefox...... Done."
-sleep 1
-echo "Neofetch......Done"
-sleep 1
-echo "ruby..........Done."
-sleep 1
-echo "lolcat........Done."
-sleep 1
-echo "zsh fonts....Done."
-sleep 1
-echo "dotfiles.....Done."
-echo "zsh..........Done."
-echo "Done"
-
+## Reboot ## 
 read -p "Would you like to reboot to take effect? (Y/n) " -n 1 -r
-echo 
+echo
 if [[  $REPLY =~ ^[nN]$ ]]
-then 
+then
 	echo "you answered no"
 	sleep 2
 	echo "Clearing screen"
@@ -108,4 +137,3 @@ done
 reboot
 
 fi
-
