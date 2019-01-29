@@ -67,6 +67,11 @@ echo "installing ZSH"
 sleep 1
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+## update libraries
+echo "Updating System"
+sleep 1
+sudo pacman -Syu
+
 ## status
 echo "Firefox...... Done."
 sleep 1
