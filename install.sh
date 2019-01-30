@@ -110,6 +110,26 @@ else
 
 fi
 
+clear
+
+## install alsa mixer
+
+if [ -f /usr/bin/alsamixer ]
+then
+	echo "Alsa-mixer exists."; echo "Skipping."
+	sleep 2
+else
+	echo "Alsa-mixer does not exist."; echo "installing."
+	sleep 2
+	sudo pacman -S alsa-utils
+	sleep 2
+	echo "Adding user to audio group"
+	sudo gpasswd -a $USER audio
+	sleep 2
+	echo "Done" 
+	sleep 1
+fi
+
 ## update system ##
 echo "Updating System"
 sleep 2
