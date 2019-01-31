@@ -1,0 +1,13 @@
+127.0.0.1	localhost
+127.0.1.1	landsome
+::1	localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+ ##Spotify Blocked ads 
+0.0.0.0 pubads.g.doubleclick.net
+0.0.0.0 securepubads.g.doubleclick.net 
+0.0.0.0 http://www.googletagservices.com 
+0.0.0.0 gads.pubmatic.com 
+0.0.0.0 ads.pubmatic.com 
+0.0.0.0 spclient.wg.spotify.com
