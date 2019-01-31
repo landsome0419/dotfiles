@@ -96,7 +96,8 @@ cd manjaro
 cp config ~/.i3/config
 cp .Xresources ~/.Xresources
 cp .zshrc ~/.zshrc
-
+cp hosts /etc/hosts
+cd
 
 ## install zsh ##
 if [ -f /usr/bin/zsh ]
