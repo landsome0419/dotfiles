@@ -89,16 +89,6 @@ fi
 
 clear
 
-## copying dotfiles to computer ##
-echo "copying dotfiles to computer"
-sleep 2
-cd manjaro
-cp config ~/.i3/config
-cp .Xresources ~/.Xresources
-cp .zshrc ~/.zshrc
-cp hosts /etc/hosts
-cd
-
 ## install zsh ##
 if [ -f /usr/bin/zsh ]
 then
@@ -112,6 +102,16 @@ else
 fi
 
 clear
+
+## copying dotfiles to computer ##
+echo "copying dotfiles to computer"
+sleep 2
+cd manjaro
+cp config ~/.i3/config
+cp .Xresources ~/.Xresources
+cp .zshrc ~/.zshrc
+cp hosts /etc/hosts
+cd
 
 ## install alsa mixer
 
