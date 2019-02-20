@@ -114,13 +114,7 @@ cp hosts /etc/hosts
 cd
 
 ## install alsa mixer
-
-if [ -f /usr/bin/alsamixer ]
-then
-	echo "Alsa-mixer exists."; echo "Skipping."
-	sleep 2
-else
-	echo "Alsa-mixer does not exist."; echo "installing."
+"Installing alsamixer."
 	sleep 2
 	sudo pacman -S alsa-utils
 	sleep 2
@@ -129,7 +123,6 @@ else
 	sleep 2
 	echo "Done" 
 	sleep 1
-fi
 
 ## update system ##
 echo "Updating System"
